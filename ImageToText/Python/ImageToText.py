@@ -10,14 +10,15 @@ def imageToText(filename: str, scale: tuple, output, reverse_brightness = 0):
         brightness = brightness[::-1]
     img = cv2.imread(filename, 0)
     if img is None:
-        return -1
+        return
 
     img = cv2.resize(img, (int(img.shape[1] / scale[0]), int(img.shape[0] / scale[1])))
 
+    output_str = ""
     for y in range(img.shape[0]):
         for x in range(img.shape[1]):
             pixel = int(img[y, x])
-            output.write(brightness[floor(pixel * (len(brightness) / 255)) - 1])
-        output.write("\n")
+            output_str += brightness[floor((pixel * 64) >> 8)]
+        output_str += "\n"
 
-    return 0
+    output.write(output_str)
