@@ -7,7 +7,7 @@
 #define brightness "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?+-~i!Il;:,^.' "
 
 
-int imageToText(std::string& filename, unsigned int* scale, std::ofstream& output) {
+int imageToText(std::string& filename, double* scale, std::ofstream& output) {
 	cv::Mat img;
 	img = cv::imread(filename, 0);
 
@@ -15,7 +15,7 @@ int imageToText(std::string& filename, unsigned int* scale, std::ofstream& outpu
 		return -1;
 	}
 
-	cv::resize(img, img, cv::Size(img.rows / scale[0], img.cols / scale[1]), cv::INTER_NEAREST);
+	cv::resize(img, img, cv::Size(std::round(img.rows / scale[0]), std::round(img.cols / scale[1])), cv::INTER_NEAREST);
 
 	std::string output_str;
 	int pos = 0;

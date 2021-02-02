@@ -6,7 +6,7 @@
 int main() {
 	std::string filename;
 	std::string output_filename;
-	unsigned int scale[2];
+	double scale[2];
 
 	std::cout << "Enter image file: ";
 	std::cin >> filename;

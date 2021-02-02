@@ -2,8 +2,8 @@ import ImageToText
 
 scale = [0, 0]
 filename = input("Image file name: ")
-scale[0] = int(input("X scale: "))
-scale[1] = int(input("Y scale: "))
+scale[0] = float(input("X scale: "))
+scale[1] = float(input("Y scale: "))
 output_filename = input("Output file name: ")
 reverse_brightness = int(input("Reverse brightness scale: "))
 
