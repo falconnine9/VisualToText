@@ -22,8 +22,7 @@ int imageToText(std::string& filename, double* scale, std::ofstream& output) {
 	output_str.resize(img.rows * (img.cols + 1));
 	for (int x = 0; x < img.rows; x++) {
 		for (int y = 0; y < img.cols; y++) {
-			char pixel = brightness[(img.at<uchar>(x, y) * 64) >> 8];
-			output_str[pos] = pixel;
+			output_str[pos] = brightness[(img.at<uchar>(x, y) * 64) >> 8];
 			pos++;
 		}
 		output_str[pos] = '\n';
@@ -32,5 +31,5 @@ int imageToText(std::string& filename, double* scale, std::ofstream& output) {
 
 	output << output_str;
 
-	return -1;
+	return 0;
 }

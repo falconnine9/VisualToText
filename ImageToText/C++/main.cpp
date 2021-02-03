@@ -9,7 +9,7 @@ int main() {
 
 	std::cout << "Enter image file: ";
 	std::cin >> filename;
-	
+
 	std::cout << "X scale: ";
 	std::cin >> scale[0];
 
@@ -23,6 +23,6 @@ int main() {
 	output.open(output_filename);
 
 	imageToText(filename, scale, output);
-	
+
 	output.close();
 }
