@@ -25,7 +25,7 @@ def videoToText(filename: str, scale: tuple, output):
         for y in range(frame.shape[0]):
             for x in range(frame.shape[1]):
                 pixel = int(frame[y, x])
-                frames += brightness[floor((pixel * 64) >> 8)]
+                frames += brightness[pixel & 0b111111]
             frames += "\n"
         frames += "2"
 
